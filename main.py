@@ -21,11 +21,14 @@ print("fixed,vertical,horizontal,center :")
 billboard = input()
 print("Do you want to be able to see it through blocks?")
 print("type 1b for true and 0b for false: ")
+billboard = input()
+print("What do you want the display scale to be?:")
+scale = input()
 seethrough = input()
 image = img.resize((int(w), int(h)), Image.Resampling.LANCZOS)
 pix = image.load()
 image.show();
-command = "{EntityTag:{id:\"minecraft:text_display\",line_width:32767,background:-16777216,billboard:" + billboard + ",see_through:" + seethrough + ",text:'["
+command = "{EntityTag:{id:\"minecraft:text_display\",line_width:32767,background:-16777216,transformation:{scale:[" + scale + "," + scale + "," + scale + "]},billboard:" + billboard + ",see_through:" + seethrough + ",text:'["
 i = 0
 j = 0
 ran = 0
@@ -62,7 +65,7 @@ while i < image.height:
                 squares += "█" #if the pixel next to it is the same color it doesnt create a new text parameter and instead adds another square
             else:
                 break
-        if(j==image.width-1):
+        if(j==image.width-1 and i < image.height - 1):
             squares+= r"\\n"
         command += ("{\"text\":\"" + squares + "\",\"color\":\"#" + hexval + "\"") #adds the text with the hex value
         if ran == 0:
