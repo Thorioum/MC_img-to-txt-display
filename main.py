@@ -21,10 +21,10 @@ print("fixed,vertical,horizontal,center :")
 billboard = input()
 print("Do you want to be able to see it through blocks?")
 print("type 1b for true and 0b for false: ")
-billboard = input()
+seethrough = input()
 print("What do you want the display scale to be?:")
 scale = input()
-seethrough = input()
+
 image = img.resize((int(w), int(h)), Image.Resampling.LANCZOS)
 pix = image.load()
 image.show();
